@@ -8,7 +8,7 @@ define('USERNAME', 'root');
 define('PASSWORD', '');
 define('DATABASE', 'prototipo_homeoffice');
 
-define('ROOT', 'http://localhost/_prototipos/home-office/');
+define('ROOT', 'http://localhost/_prototipos/sistema-contas/');
 define('PUBLIC_URI', ROOT . 'public/');
 
 define('DATE_FORMAT_DB', 'Y-m-d');
