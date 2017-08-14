@@ -46,7 +46,7 @@ class AppController
 			extract($data);
 
 		ob_start();
-		include './app/views/' . $templateUri . '.php';
+		include './app/Views/' . $templateUri . '.php';
 		$content = ob_get_clean();
 
 		require './template/' . $this->_template . '.php';
