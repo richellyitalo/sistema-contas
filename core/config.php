@@ -10,7 +10,6 @@ define('DATABASE', 'prototipo_sistemacontas');
 
 define('ROOT', 'http://localhost/_prototipos/sistema-contas/');
 define('PUBLIC_URI', ROOT . 'public/');
-var_dump($_SERVER);
 
 define('DATE_FORMAT_DB', 'Y-m-d');
 define('DATE_FORMAT_READABLE', 'd/m/Y');
