@@ -25,13 +25,9 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Line graph</h2>
 
 				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#">Settings 1</a>
 							</li>
@@ -39,21 +35,20 @@
 							</li>
 						</ul>
 					</li>
-					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content2">
-				<h3>Filtre de resultado</h3>
-				<form action="" class="form-inline">
+				<h3>Filtro de resultado</h3>
+				<form action="" class="form-inline" id="formFilter">
 					<div class="form-group">
 						<label for="">De</label>
-						<input type="text" class="form-control">
+						<input type="text" id="dataDe" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="">Até</label>
-						<input type="text" class="form-control">
+						<input type="text" id="dataAte" class="form-control">
 					</div>
 					<div class="form-group">
 						<label for="">&nbsp;</label>
@@ -69,32 +64,51 @@
 	</div>
 
 </div>
+
+<div id="response"></div>
+
 <script>
 
 	window.onload = function() {
 
-
-        if ($('#relatorioMoris').length ) {
-
-            var char = Morris.Line({
+        var char = Morris.Line({
                 element: 'relatorioMoris',
-                xkey: 'data',
-                ykeys: ['pagar', 'receber'],
-                labels: ['A pagar', 'A peceber'],
-                hideHover: 'auto',
-                lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-                data: [
-                    {data: '2012', pagar: 20, receber: 30},
-                    {data: '2013', pagar: 10, receber: 50},
-                    {data: '2014', pagar: 5, receber: 50},
-                    {data: '2015', pagar: 5, receber: 50},
-                    {data: '2016', pagar: 20, receber: 50},
-                    {data: '2017', pagar: 20},
-                    {data: '2018', pagar: 30, receber: 40},
-                ],
-                resize: true
-            });
+            xkey: 'data',
+            ykeys: ['pagar', 'receber'],
+            labels: ['A pagar', 'A peceber'],
+            xLabelFormat: function(d) {
+                    console.log(d);
+                return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear();
+            },
+            hideHover: 'auto',
+            lineColors: ['red', 'green'],
+            data: [],
+            resize: true
+        });
 
-        }
+        $('#dataDe, #dataAte').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+
+        $('#formFilter').on('submit', function (event) {
+            event.preventDefault();
+
+            $.post(
+                './home/filtrar',
+                {
+                    de: $('#dataDe').val(),
+                    ate: $('#dataAte').val(),
+                },
+                function (response) {
+                    char.setData(response.data);
+
+                    $('#response').html(response.html);
+                },
+                'json'
+            );
+
+        });
+        $('#formFilter').trigger('submit');
+
 	};
 </script>

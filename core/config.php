@@ -6,10 +6,11 @@ ini_set("display_errors", 1);
 define('HOST', 'localhost');
 define('USERNAME', 'root');
 define('PASSWORD', '');
-define('DATABASE', 'prototipo_homeoffice');
+define('DATABASE', 'prototipo_sistemacontas');
 
 define('ROOT', 'http://localhost/_prototipos/sistema-contas/');
 define('PUBLIC_URI', ROOT . 'public/');
+var_dump($_SERVER);
 
 define('DATE_FORMAT_DB', 'Y-m-d');
 define('DATE_FORMAT_READABLE', 'd/m/Y');
@@ -40,4 +41,14 @@ function formatNumber($value)
 function formatNumberToDb($value)
 {
 	return str_replace(['.', ','], ['', '.'], $value);
+}
+
+function auth($node)
+{
+	return $_SESSION['auth'][$node];
+}
+
+function logged()
+{
+	return $_SESSION['logged'];
 }

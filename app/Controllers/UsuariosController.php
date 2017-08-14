@@ -79,4 +79,31 @@ class UsuariosController extends AppController
 
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
+
+	public function login()
+	{
+		$this->setTemplate('login');
+		$model = $this->model('usuarios');
+
+		if (! empty($_POST)) {
+			if (empty($_POST['email']) || empty($_POST['senha'])) {
+				$this->message('Todos os campos devem ser preenchidos!');
+			} else {
+				if ($model->login($_POST['email'], $_POST['senha'])) {
+					$this->redirect('');
+				} else {
+					$this->message('E-mail ou senha inválidos');
+				}
+			}
+		}
+
+		$this->view('usuarios/login');
+	}
+
+	public function logout()
+	{
+		if ($this->model('usuarios')->logout()) {
+			$this->redirect('usuarios/login');
+		}
+	}
 }

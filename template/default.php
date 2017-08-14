@@ -57,7 +57,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Bem vindo,</span>
-                        <h2>{NOME_USUARIO}</h2>
+                        <h2><?php echo auth('name') ?></h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -113,7 +113,7 @@
                 <!-- /sidebar menu -->
 
                 <!-- /menu footer buttons -->
-                <div class="sidebar-footer hidden-small">
+                <!--<div class="sidebar-footer hidden-small">
                     <a data-toggle="tooltip" data-placement="top" title="Settings">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
@@ -126,7 +126,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
-                </div>
+                </div>-->
                 <!-- /menu footer buttons -->
             </div>
         </div>
@@ -142,7 +142,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="<?php echo PUBLIC_URI ?>production/images/avatar.png" alt="">{NOME_USUARIO}
+                                <img src="<?php echo PUBLIC_URI ?>production/images/avatar.png" alt=""><?php echo auth('name') ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -154,7 +154,7 @@
                                     </a>
                                 </li>
                                 <li><a href="javascript:;">Help</a></li>-->
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                                <li><a href="<?php echo url('usuarios/logout') ?>"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                             </ul>
                         </li>
 

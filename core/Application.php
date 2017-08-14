@@ -2,6 +2,11 @@
 
 require 'vendor/autoload.php';
 
+session_start();
+if (! session_id()) {
+	$_SESSION['logged'] = false;
+}
+
 require_once 'config.php';
 
 class Application
@@ -31,6 +36,14 @@ class Application
 	public function start()
 	{
 		$this->_parseUrl();
+
+		if (! logged() && $this->_controller != 'usuarios' && $this->_method != 'login') {
+			$this->_controller = 'usuarios';
+			$this->_method = 'login';
+
+			$_SESSION['message'] = 'É necessário estar logado';
+			header('Location: ' . ROOT . 'usuarios/login');
+		}
 
 		$controllerName = ucfirst($this->_controller) . 'Controller';
 

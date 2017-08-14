@@ -127,6 +127,22 @@ class AppTable
 		return $this->db->query($query);
 	}
 
+	public function fetch($query)
+	{
+		$sth = $this->db->prepare($query);
+		$sth->execute();
+
+		return $sth->fetch();
+	}
+
+	public function fetchAll($query)
+	{
+		$sth = $this->db->prepare($query);
+		$sth->execute();
+
+		return $sth->fetchAll();
+	}
+
 	public function queryWithData($preparySql, $data)
 	{
 		$st = $this->db->prepare($preparySql);

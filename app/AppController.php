@@ -1,9 +1,6 @@
 <?php
 namespace App;
 
-if (!session_id())
-	session_start();
-
 class AppController
 {
 
@@ -18,7 +15,6 @@ class AppController
 
 	public function getConnection()
 	{
-		// $this->db = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
 		try {
 			$this->db = new \PDO(
 				sprintf('mysql:host=%s;dbname=%s;charset=utf8', HOST, DATABASE),

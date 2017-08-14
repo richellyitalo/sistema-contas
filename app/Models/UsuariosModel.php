@@ -23,6 +23,39 @@ class UsuariosModel extends AppTable {
 		return $this;
 	}
 
+	public function login($email, $password)
+	{
+		$sql = "SELECT id, nome, email FROM usuarios WHERE email = :email AND senha = :senha";
+		$stmt = $this->db->prepare($sql);
+
+		$password = md5($password);
+		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':senha', $password);
+
+		$stmt->execute();
+		$usuario = $stmt->fetch();
+
+		if (empty($usuario))
+			return false;
+		else {
+			$_SESSION['logged'] = true;
+			$_SESSION['auth']['id'] = $usuario['id'];
+			$_SESSION['auth']['name'] = $usuario['nome'];
+			$_SESSION['auth']['email'] = $usuario['email'];
+
+			return true;
+		}
+	}
+
+
+	public function logout()
+	{
+		$_SESSION['logged'] = false;
+		unset($_SESSION['auth']);
+
+		return true;
+	}
+
 	public function getAll()
 	{
 		$res = $this->db
@@ -36,7 +69,7 @@ class UsuariosModel extends AppTable {
 
 	}
 
-	protected function beforeSave()
+	protected function beforeSave($data = null)
 	{
 		$this->setField('senha', md5($this->getField('senha')));
 	}
