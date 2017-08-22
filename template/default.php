@@ -94,15 +94,15 @@
                             <li>
                                 <a><i class="fa fa-user"></i> Contas a Pagar <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?= url('contaspagar') ?>">Listar</a></li>
-                                    <li><a href="<?= url('contaspagar/lancamento') ?>">Lançar</a></li>
+                                    <li><a href="<?= url('contasPagar') ?>">Listar</a></li>
+                                    <li><a href="<?= url('contasPagar/lancamento') ?>">Lançar</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a><i class="fa fa-user"></i> Contas a Receber <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?= url('contasreceber') ?>">Listar</a></li>
-                                    <li><a href="<?= url('contasreceber/lancamento') ?>">Lançar</a></li>
+                                    <li><a href="<?= url('contasReceber') ?>">Listar</a></li>
+                                    <li><a href="<?= url('contasReceber/lancamento') ?>">Lançar</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -239,7 +239,11 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                Desenvolvido por
+                <a href="https://twitter.com/richellyitalo" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                    @richellyitalo
+                </a>
             </div>
             <div class="clearfix"></div>
         </footer>

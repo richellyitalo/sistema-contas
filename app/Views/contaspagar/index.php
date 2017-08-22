@@ -74,10 +74,10 @@
 						<td>R$ <?php echo formatNumber($lancamento['valor']) ?></td>
 						<td>R$ <?php echo formatNumber($lancamento['valor_final']) ?></td>
 						<td>
-                            <form action="<?= url('contaspagar/delete') ?>" class="form-horizontal" method="post">
+                            <form action="<?= url('contasPagar/delete') ?>" class="form-horizontal" method="post">
                                 <input type="hidden" name="id" value="<?= $lancamento['id'] ?>">
 
-                                <a href="<?= url('contaspagar/edit/' . $lancamento['id']) ?>">
+                                <a href="<?= url('contasPagar/edit/' . $lancamento['id']) ?>">
                                     Editar
                                 </a>
 

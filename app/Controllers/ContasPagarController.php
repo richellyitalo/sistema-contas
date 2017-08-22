@@ -41,7 +41,7 @@ class ContasPagarController extends AppController
 
 			if ($lancamento->save($_POST)) {
 				$this->message('Lançamento salvo com sucesso!');
-				$this->redirect('contaspagar');
+				$this->redirect('contasPagar');
 			} else {
 				$this->message('Não foi possível lançar esta conta.');
 			}
@@ -67,7 +67,7 @@ class ContasPagarController extends AppController
 		if (! empty($_POST)) {
 			if ($lancamento->save($_POST)) {
 				$this->message('Lançamento atualizado com sucesso!');
-				$this->redirect('contaspagar/edit/' . $id);
+				$this->redirect('contasPagar/edit/' . $id);
 			} else {
 				$this->message('Não foi possível lançar esta conta.');
 			}

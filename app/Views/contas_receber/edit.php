@@ -30,7 +30,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="<?= url('contasreceber') ?>">Contas a receber</a>
+                                <a href="<?= url('contasReceber') ?>">Contas a receber</a>
                             </li>
                         </ul>
                     </li>

@@ -30,7 +30,7 @@
 							<td>R$ <?php echo formatNumber($lancamento['valor']) ?></td>
 							<td>R$ <?php echo formatNumber($lancamento['valor_final']) ?></td>
 							<td>
-								<a href="<?= url('contaspagar/edit/' . $lancamento['id']) ?>">
+								<a href="<?= url('contasPagar/edit/' . $lancamento['id']) ?>">
 									Editar
 								</a>
 							</td>
@@ -74,7 +74,7 @@
 							<td>R$ <?php echo formatNumber($lancamento['valor']) ?></td>
 							<td>R$ <?php echo formatNumber($lancamento['valor_final']) ?></td>
 							<td>
-								<a href="<?= url('contasreceber/edit/' . $lancamento['id']) ?>">
+								<a href="<?= url('contasReceber/edit/' . $lancamento['id']) ?>">
 									Editar
 								</a>
 							</td>

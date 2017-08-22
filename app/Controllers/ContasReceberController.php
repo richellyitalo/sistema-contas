@@ -41,7 +41,7 @@ class ContasReceberController extends AppController
 
 			if ($lancamento->save($_POST)) {
 				$this->message('Lançamento salvo com sucesso!');
-				$this->redirect('contasreceber');
+				$this->redirect('contasReceber');
 			} else {
 				$this->message('Não foi possível lançar esta conta.');
 			}
@@ -68,7 +68,7 @@ class ContasReceberController extends AppController
 		if (! empty($_POST)) {
 			if ($lancamento->save($_POST)) {
 				$this->message('Lançamento atualizado com sucesso!');
-				$this->redirect('contasreceber/edit/' . $id);
+				$this->redirect('contasReceber/edit/' . $id);
 			} else {
 				$this->message('Não foi possível lançar esta conta.');
 			}
